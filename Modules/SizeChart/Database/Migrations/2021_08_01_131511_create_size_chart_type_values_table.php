@@ -1,0 +1,4 @@
+<?php
+use Shetabit\Shopit\Database\CreateSizeChartTypeValuesTable as BaseCreateSizeChartTypeValuesTable;
+
+class CreateSizeChartTypeValuesTable extends BaseCreateSizeChartTypeValuesTable {}

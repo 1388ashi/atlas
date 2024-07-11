@@ -1,0 +1,13 @@
+{
+    "name": "Unit",
+    "alias": "unit",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Unit\\Providers\\UnitServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

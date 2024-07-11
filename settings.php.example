@@ -1,0 +1,154 @@
+<?php
+
+return [
+    'sitemap_address' => '/home/{username}/domains/{domain}/public_html/sitemap.xml',
+    'htaccess_token' => '',
+    'slider' => [
+        'status' => true,
+        'image' => true,
+    ],
+    'size_chart' => [
+        'type' => false
+    ],
+    'home' => [
+        //HomeService
+        'front' => [
+            'user' => ['enabled' => true],
+            'menu' => ['enabled' => true],
+            'post' => ['enabled' => true, 'take' => 6],
+            'sliders' => ['enabled' => true],
+            'flashes' => ['enabled' => true],
+            'settings' => ['enabled' => true],
+            'advertise' => ['enabled' => true],
+            'mostSales' => ['enabled' => true, 'take' => 10],
+            'instagram' => ['enabled' => true],
+            'categories' => ['enabled' => true],
+            'suggestions' => ['enabled' => true, 'take' => 10],
+            'size_values' => ['enabled' => true],
+            'new_products' => ['enabled' => true, 'take' => 10],
+            'mostDiscount' => ['enabled' => true, 'take' => 10],
+            'cart_request' => ['enabled' => true],
+            'special_categories' => ['enabled' => true, 'take' => 10],
+            'colors' => ['enabled' => true]
+        ],
+    ],
+    'order' => [
+        'admin' => [
+            'pagination' => 50
+        ],
+        'postal_code_required' => false,
+        'removeFailedOrdersBeforeDays' => 30
+    ],
+    'product' => [
+        'admin' => [
+            'pagination' => 50
+        ],
+        'pagination' => 22,
+        'recommendation' => [
+            'status' => true,
+            'groups' => [
+                'new_products',
+                'most_sales',
+                'suggestions'
+            ]
+        ],
+        'with' => [ #with relation
+
+        ]
+    ],
+    'invoice' => [
+        'active_drivers' => [
+            'virtual' => [],
+//            'sadad' => [
+//                'config' => [
+//                    'key' => '2IQYp05YGfmsz5MeHrpI5AIluuYG3Gy/',
+//                    'merchantId' => '140337754',// shomare parizande bedune 0
+//                    'terminalId' => '24097291', //
+//                ]
+//            ],
+//            'behpardakht' => [
+//                'config' => [
+//                    'terminalId' => '',
+//                    'username' => '',
+//                    'password' => '',
+//                ]
+//            ],
+//            'zarinpal' => [
+//                'config' => [
+//                    'mode' => 'normal',
+//                    'merchantId' => ''
+//                ]
+//            ],
+        ]
+    ],
+    'sms' => [
+        'driver' => 'kavenegar',
+        'sender' => '1000596446',
+        'api_key' => '4C4E6E7A424B6676576D3452382F6D66464E477554647470686445315332446B',
+        'patterns' => [
+            'verification_code' => 'shopit-verification',
+            'new_order' => 'shopit-neworder',
+            'change_status' => 'shopit-changestatus',
+            'deposit_wallet' => 'deposit-wallet',
+            'listen_charge' => 'listen-charge'
+        ],
+        'new_order' => [
+            'dont_send_full_name' => false
+        ]
+    ],
+    'linkables' => [
+        [
+            'model' => \Modules\Blog\Entities\Post::class,
+            'label' => 'پست',
+            'index' => true,
+            'show' => true,
+        ],
+        [
+            'model' => \Modules\Category\Entities\Category::class,
+            'label' => 'دسته بندی محصول',
+            'index' => false,
+            'show' => true,
+            'title' => 'title'
+        ],
+        [
+            'model' => \Modules\Product\Entities\Product::class,
+            'label' => 'محصول',
+            'index' => true,
+            'show' => true,
+            'title' => 'title'
+        ],
+        [
+            'model' => \Modules\Flash\Entities\Flash::class,
+            'label' => 'فلش',
+            'index' => false,
+            'show' => true,
+            'title' => 'title'
+        ],
+        [
+            'model' => \Modules\Page\Entities\Page::class,
+            'label' => 'صفحه',
+            'index' => false,
+            'show' => true,
+            'title' => 'title'
+        ],
+        [
+            'model' => \Modules\Advertise\Entities\Advertise::class,
+            'label' => 'تبلیغات',
+            'index' => true,
+            'show' => true,
+            'title' => 'title'
+        ],
+        [
+            'model' => 'Custom\\AboutUs',
+            'label' => 'درباره ما',
+            'index' => true,
+            'show' => false
+        ],
+        [
+            'model' => 'Custom\\ContactUs',
+            'label' => 'تماس با ما',
+            'index' => true,
+            'show' => false
+        ]
+    ]
+];

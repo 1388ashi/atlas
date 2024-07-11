@@ -1,0 +1,13 @@
+{
+    "name": "Flash",
+    "alias": "flash",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Flash\\Providers\\FlashServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -1,0 +1,10 @@
+<?php
+
+namespace Modules\Core\Traits;
+
+use Shetabit\Shopit\Modules\Core\Traits\InteractsWithMedia as BaseInteractsWithMedia;
+
+trait InteractsWithMedia
+{
+    use BaseInteractsWithMedia;
+}

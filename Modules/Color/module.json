@@ -1,0 +1,13 @@
+{
+    "name": "Color",
+    "alias": "color",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Color\\Providers\\ColorServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

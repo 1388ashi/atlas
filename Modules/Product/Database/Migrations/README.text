@@ -1,0 +1,28 @@
+DROP FUNCTION IF EXISTS calculateDiscount;
+CREATE FUNCTION calculateDiscount(actual_price INT, discount_type CHAR(250), discount_amount INT)
+RETURNS INTEGER
+DETERMINISTIC
+BEGIN
+    return IF((discount_type = 'flat'), (actual_price - discount_amount),
+              ((actual_price - (discount_amount * actual_price / 100))));
+    END;
+
+
+SELECT v.*, @temp:= COALESCE(v.price, p.unit_price),
+@condition1:=(f.id IS NOT NULL AND f.start_date > now() AND f.end_date < now() AND f.status = 1),
+@condition2:=v.discount_type IS NOT NULL,
+@condition3:=p.discount_type IS NOT NULL
+,@final_price := FLOOR((CASE WHEN @condition1 THEN
+calculateDiscount(@temp, fp.discount_type, fp.discount)
+WHEN @condition2 THEN
+calculateDiscount(@temp, v.discount_type, v.discount)
+WHEN @condition3 THEN
+calculateDiscount(@temp, p.discount_type, p.discount)
+ELSE @temp END)) as final_price,
+CASE WHEN @condition1 THEN 'flash' WHEN @condition2 THEN 'variety' WHEN @condition3 THEN 'product' ELSE 'none' END
+as applied_discount_type,
+FLOOR(IF(v.price IS NOT NULL, v.price - @final_price, p.unit_price - @final_price))
+as applied_discount_amount
+FROM varieties v JOIN products p ON v.product_id = p.id
+LEFT JOIN flash_product fp ON p.id = fp.product_id
+LEFT JOIN flashes f on fp.flash_id = f.id;

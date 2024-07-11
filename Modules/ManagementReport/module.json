@@ -1,0 +1,13 @@
+{
+    "name": "ManagementReport",
+    "alias": "managementreport",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\ManagementReport\\Providers\\ManagementReportServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

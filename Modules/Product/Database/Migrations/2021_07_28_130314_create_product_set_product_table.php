@@ -1,0 +1,4 @@
+<?php
+use Shetabit\Shopit\Database\CreateProductSetProductTable as BaseCreateProductSetProductTable;
+
+class CreateProductSetProductTable extends BaseCreateProductSetProductTable {}

@@ -1,0 +1,14 @@
+{
+    "name": "Contact",
+    "alias": "contact",
+    "description": "",
+    "keywords": [],
+    "order": 0,
+    "providers": [
+        "Modules\\Contact\\Providers\\ContactServiceProvider",
+        "Modules\\Contact\\Providers\\EventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -1,0 +1,4 @@
+<?php
+use Shetabit\Shopit\Database\CreateStoreTransactionsTable as BaseCreateStoreTransactionsTable;
+
+class CreateStoreTransactionsTable extends BaseCreateStoreTransactionsTable {}

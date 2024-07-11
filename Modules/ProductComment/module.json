@@ -1,0 +1,13 @@
+{
+    "name": "ProductComment",
+    "alias": "productcomment",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\ProductComment\\Providers\\ProductCommentServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

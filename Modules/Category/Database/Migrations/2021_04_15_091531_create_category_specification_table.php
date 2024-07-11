@@ -1,0 +1,4 @@
+<?php
+use Shetabit\Shopit\Database\CreateCategorySpecificationTable as BaseCreateCategorySpecificationTable;
+
+class CreateCategorySpecificationTable extends BaseCreateCategorySpecificationTable {}

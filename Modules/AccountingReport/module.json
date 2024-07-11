@@ -1,0 +1,13 @@
+{
+    "name": "AccountingReport",
+    "alias": "accountingreport",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\AccountingReport\\Providers\\AccountingReportServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

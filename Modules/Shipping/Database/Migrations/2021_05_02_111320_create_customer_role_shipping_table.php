@@ -1,0 +1,4 @@
+<?php
+use Shetabit\Shopit\Database\CreateCustomerRoleShippingTable as BaseCreateCustomerRoleShippingTable;
+
+class CreateCustomerRoleShippingTable extends BaseCreateCustomerRoleShippingTable {}

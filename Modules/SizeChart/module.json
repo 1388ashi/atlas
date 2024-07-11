@@ -1,0 +1,13 @@
+{
+    "name": "SizeChart",
+    "alias": "sizechart",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\SizeChart\\Providers\\SizeChartServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

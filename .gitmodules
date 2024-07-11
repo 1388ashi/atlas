@@ -1,0 +1,3 @@
+[submodule "vendor/shetabit/shopit"]
+	path = vendor/shetabit/shopit
+	url = https://github.com/shetabit/shopit-core.git

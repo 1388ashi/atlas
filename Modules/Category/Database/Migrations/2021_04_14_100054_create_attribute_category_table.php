@@ -1,0 +1,4 @@
+<?php
+use Shetabit\Shopit\Database\CreateAttributeCategoryTable as BaseCreateAttributeCategoryTable;
+
+class CreateAttributeCategoryTable extends BaseCreateAttributeCategoryTable {}

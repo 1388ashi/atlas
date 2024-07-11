@@ -1,0 +1,13 @@
+{
+    "name": "Prize",
+    "alias": "Prize",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Prize\\Providers\\PrizeServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

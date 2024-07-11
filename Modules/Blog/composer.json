@@ -1,0 +1,29 @@
+{
+    "name": "nwidart/blog",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "require": {
+        "cviebrock/eloquent-sluggable": "^8.0",
+        "cviebrock/eloquent-taggable": "^8.0",
+        "spatie/eloquent-sortable": "^4.0",
+        "spatie/laravel-medialibrary": "9.0.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Blog\\": ""
+        }
+    }
+}

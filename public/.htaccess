@@ -1,0 +1,37 @@
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Methods  "*"
+    Header always set Access-Control-Allow-Origin  "*"
+    Header always set Access-Control-Allow-Headers "Content-Type, x-requested-with, Authorization, Accept"
+    Header always set Access-Control-Max-Age  "3600"
+
+    <FilesMatch "\.(ico|pdf|jpg|jpeg|png|woff2|ttf|svg|woff|webp|gif|html|htm|xml|txt|xsl|css|js)$">
+        Header set Cache-Control "max-age=3004800, public"
+    </FilesMatch>
+</IfModule>
+
+<IfModule Litespeed>
+ RewriteEngine On
+ RewriteRule .* - [E=noabort:1, E=noconntimeout:1]
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    RewriteCond %{REMOTE_ADDR} ^153\.92\.
+    RewriteRule ^ - [F,L]
+
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>

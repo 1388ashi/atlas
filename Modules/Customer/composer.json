@@ -1,0 +1,26 @@
+{
+    "name": "nwidart/customer",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "require": {
+        "bavix/laravel-wallet": "^6.1"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Customer\\": ""
+        }
+    }
+}

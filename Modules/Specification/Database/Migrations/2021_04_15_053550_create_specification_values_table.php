@@ -1,0 +1,4 @@
+<?php
+use Shetabit\Shopit\Database\CreateSpecificationValuesTable as BaseCreateSpecificationValuesTable;
+
+class CreateSpecificationValuesTable extends BaseCreateSpecificationValuesTable {}
