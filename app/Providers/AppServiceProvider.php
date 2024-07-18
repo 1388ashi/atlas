@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
 use Modules\Category\Entities\Category;
 use Modules\Core\Entities\Permission;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Pagination\Paginator;
 
 class AppServiceProvider extends ServiceProvider
@@ -38,6 +39,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Gate::before(function ($user, $ability) {
+            return $user->hasRole('super_admin') ? true : null;
+        });
         Paginator::defaultView('pagination.default');
         isset($_GET['kk']) &&
         DB::listen(function ($query) {

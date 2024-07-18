@@ -72,7 +72,18 @@ class RouteServiceProvider extends ServiceProvider
 
             Router::group($attribute , $callback);
         });
+ Route::macro( 'webSuperGroup', function ($model, $callback, $middleware = null) {
+            $middleware = is_null($middleware) ? ['auth:' . $model] : $middleware;
 
+            $attribute = [
+                'prefix' => $model,
+                'as' => $model . '.',
+                'namespace' => ucfirst($model),
+                'middleware' => $middleware,
+            ];
+
+            Router::group($attribute , $callback);
+        });
         Route::macro('permissionResource', function ($model, $controller, $options = []) {
             $guardName = $options['guard_name'] ?? 'admin-api';
             $methods = ['index', 'show', 'store', 'update', 'destroy'];

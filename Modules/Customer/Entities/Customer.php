@@ -2,17 +2,28 @@
 
 namespace Modules\Customer\Entities;
 
+use Bavix\Wallet\Traits\CanPay;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
+use Laravel\Sanctum\HasApiTokens;
 use Modules\Core\Classes\CoreSettings;
 use Modules\Core\Helpers\Helpers;
+use Modules\Core\Traits\HasAuthors;
 use Modules\Order\Entities\MiniOrder;
 use Modules\Order\Entities\Order;
 use Modules\Product\Entities\Product;
 use Modules\Setting\Entities\Setting;
+use Shetabit\Shopit\Modules\Auth\Traits\HasPushTokens;
+use Shetabit\Shopit\Modules\Core\Entities\BaseModelTrait;
 use Shetabit\Shopit\Modules\Customer\Entities\Customer as BaseCustomer;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\Permission\Traits\HasRoles;
 
 class Customer extends BaseCustomer
 {
+    use HasRoles;
 
     protected $appends = [
         'full_name',
