@@ -36,7 +36,9 @@
 	</head>
 
 	<body>
-
+@if($errors->any())
+{{ dd(1)}}
+@endif
 		<div class="page login-bg">
 			<div class="page-single">
 				<div class="container">

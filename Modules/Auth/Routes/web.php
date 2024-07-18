@@ -1,12 +1,13 @@
 <?php
+use Illuminate\Support\Facades\Route;
 use Modules\Auth\Http\Controllers\Admin\AuthController;
-use Modules\Auth\Http\Controllers\Customer\AuthController as CustomerAuthController;
+
 
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login.form');
 Route::post('/' , [AuthController::class, 'loginWeb'])->name('login');
-Route::middleware('auth')->name('admin.')->prefix('admin')->group(function () {
+Route::webSuperGroup('admin', function () {
     //auth
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/webLogout', [AuthController::class, 'webLogout'])->name('webLogout');
 });
 
 //Customer routes

@@ -11,6 +11,7 @@
                 <span class="side-menu__label">داشبورد</span></i>
             </a>
         </li>
+        @role('super_admin')
         {{-- @if(Auth::user()->role->name == 'super_admin') --}}
         <li class="slide">
             <a class="side-menu__item" style="cursor: pointer" data-toggle="slide" >
@@ -24,5 +25,6 @@
                 <li><a href="{{route('admin.admins.index')}}" class="slide-item">مدیریت ادمین ها</a></li>
             </ul>
         </li>
+        @endrole
     </ul>
 </div>

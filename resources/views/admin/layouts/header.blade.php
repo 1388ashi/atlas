@@ -48,7 +48,7 @@
 												</span>
 											</a>
 											<div class="dropdown-menu dropdown-menu-left dropdown-menu-arrow animated">
-											
+
 												<a class="dropdown-item d-flex">
 													<i class="feather feather-user ml-3 fs-16 my-auto"></i>
 													<div class="mt-1">Profile</div>
@@ -110,20 +110,21 @@
 											</a>
 										</div>
 										<div class="dropdown header-fullscreen">
-											<form method="POST" action="{{ route('admin.logout') }}">
+											<form method="POST" action="{{ route('admin.webLogout') }}">
 												@csrf
 												<button style="border: none; display: flex; justify-content: center; align-items: center;" title="خروج" class="nav-link icon full-screen-link">
 													<i class="feather feather-power ml-1 fs-16"></i>
 												</button>
 											</form>
 										</div>
+
 										{{-- <button class="mt-1">خروج</button> --}}
-						
+
 									</div>
 								</div>
 							</div>
-						</div> 
-						
+						</div>
+
 						{{-- <div class="modal fade"  id="changepasswordnmodal">
 							<div class="modal-dialog" role="document">
 								<form action="{{route('change-password',[session()->get('user_id')])}}" method="post">
@@ -137,22 +138,22 @@
 											</button>
 										</div>
 										<div class="modal-body">
-											@if(request()->is('post/create') && $errors->any()) 
+											@if(request()->is('post/create') && $errors->any())
 										<x-alert-danger></x-alert-danger>
 										<x-alert-success></x-alert-success>
-										
+
 										@elseif(request()->is('post/edit') && $errors->any())
 										<x-alert-danger></x-alert-danger>
 										<x-alert-success></x-alert-success>
-										
+
 										@elseif(request()->is('article/create') && $errors->any())
 										<x-alert-danger></x-alert-danger>
 										<x-alert-success></x-alert-success>
-										
+
 										@elseif(request()->is('article/edit') && $errors->any())
 										<x-alert-danger></x-alert-danger>
 										<x-alert-success></x-alert-success>
-										
+
 										@elseif(request()->is('slider/create') && $errors->any())
 										<x-alert-danger></x-alert-danger>
 										<x-alert-success></x-alert-success>

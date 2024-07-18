@@ -2,24 +2,19 @@
 
 namespace Modules\Permission\Http\Controllers\Admin;
 
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
-use Modules\Admin\Entities\Admin;
-use Illuminate\Contracts\Support\Renderable;
-use Modules\Core\Entities\Permission;
-use Modules\Core\Helpers\Helpers;
 use Modules\Permission\Entities\Role;
 use Modules\Permission\Http\Requests\Admin\RoleStoreRequest;
 use Modules\Permission\Http\Requests\Admin\RoleUpdateRequest;
+use Shetabit\Shopit\Modules\Permission\Http\Controllers\Admin\RoleController as BaseRoleController;
+use Illuminate\Database\Eloquent\Collection;
+use Modules\Admin\Entities\Admin;
+use Modules\Core\Entities\Permission;
 
-class RoleController extends Controller
+use Illuminate\Contracts\Support\Renderable;
+
+class RoleController extends BaseRoleController
 {
-    /**
-     * Display a listing of the resource.
-     */
     private function permissions(): Collection
     {
         return Permission::query()
@@ -27,7 +22,7 @@ class RoleController extends Controller
             ->select(['id', 'name', 'label'])
             ->get();
     }
-    public function index()
+    public function webIndex()
     {
         $roles = Role::query()
         ->latest('id')
@@ -37,7 +32,7 @@ class RoleController extends Controller
 
         return view('permission::admin.role.index', compact('roles'));
     }
-    public function create(): Renderable
+    public function webCreate(): Renderable
     {
         $permissions = $this->permissions();
 
@@ -47,7 +42,7 @@ class RoleController extends Controller
      * Store a newly created resource in storage.
      * @param RoleStoreRequest $request
      */
-    public function store(RoleStoreRequest $request) : RedirectResponse
+    public function webStore(RoleStoreRequest $request) : RedirectResponse
     {
         $role = Role::query()->create($request->only('name', 'label', 'guard_name'));
         $role->givePermissionTo($request->permissions);
@@ -55,7 +50,7 @@ class RoleController extends Controller
         return redirect()->route('admin.roles.index')
         ->with('success', 'نقش با موفقیت ثبت شد.');
     }
-    public function edit(Role $role)
+    public function webEdit(Role $role)
     {
         // if ($role->name == 'super_admin') {
         //     Auth::logout();
@@ -71,7 +66,7 @@ class RoleController extends Controller
      * @param RoleUpdateRequest $request
      * @param int $id
      */
-    public function update(RoleUpdateRequest $request,Role $role)
+    public function webUpdate(RoleUpdateRequest $request,Role $role)
     {
         $role->update($request->only('name', 'label', 'guard_name'));
         $role->syncPermissions($request->permissions);
@@ -85,7 +80,7 @@ class RoleController extends Controller
      * Remove the specified resource from storage.
      * @param int $id
      */
-    public function destroy(Role $role)
+    public function webDestroy(Role $role)
     {
         if (!empty($role->admins['items'])) {
             $data = [

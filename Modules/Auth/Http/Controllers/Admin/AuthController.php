@@ -7,14 +7,19 @@ use Illuminate\Support\Facades\Hash;
 use Modules\Admin\Entities\Admin;
 use Illuminate\Support\Facades\Auth;
 use Modules\Core\Classes\CoreSettings;
+
 use Shetabit\Shopit\Modules\Auth\Http\Controllers\Admin\AuthController as BaseAuthController;
 
 class AuthController extends BaseAuthController
 {
     public function showLoginForm()
     {
+        if(auth()->guard('admin')->user()) {
+            return redirect()->route('admin.dashboard');
+        }
         return view('auth::admin.login');
     }
+
     public function loginWeb(Request $request)
     {
         $credentials = $request->validate([
@@ -37,12 +42,21 @@ class AuthController extends BaseAuthController
                 return redirect()->back()->with(['status' => $status,'message' => $message]);
             }
         }
-        Auth::guard('admin')->login($admin);
+        // Auth::guard('admin')->login($admin);
+
+        if (Auth::guard('admin')->attempt($credentials,1)) {
+            $request->session()->regenerate();
         return redirect()->route('admin.dashboard');
+}
+
+
     }
-    public function logout(Request $request)
+    public function webLogout(Request $request)
     {
         Auth::logout();
-        return redirect('/');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login.form');
     }
 }

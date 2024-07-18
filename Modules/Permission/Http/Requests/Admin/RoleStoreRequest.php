@@ -6,8 +6,9 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Modules\Core\Entities\Role;
 use Modules\Core\Helpers\Helpers;
+use Shetabit\Shopit\Modules\Permission\Http\Requests\Admin\RoleStoreRequest as BaseRoleStoreRequest;
 
-class RoleStoreRequest extends FormRequest
+class RoleStoreRequest extends BaseRoleStoreRequest
 {
     /**
      * Get the validation rules that apply to the request.

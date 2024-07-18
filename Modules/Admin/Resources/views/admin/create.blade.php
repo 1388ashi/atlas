@@ -73,17 +73,6 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
-                                <span class="control-label ">
-                                    وضعیت
-                                </span>
-                                <label style="cursor: pointer" class="custom-control custom-checkbox mr-1 mt-1">
-                                    <input  type="checkbox" class="custom-control-input" name="status" value="1" @checked(old('status') == 1) checked>
-                                    <span class="custom-control-label">فعال</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row">
                             <div class="col">
                                 <div class="text-center">
                                     <button class="btn btn-pink" type="submit">ثبت و ذخیره</button>

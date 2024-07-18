@@ -5,8 +5,9 @@ namespace Modules\Permission\Http\Requests\Admin;
 use Illuminate\Foundation\Http\FormRequest;
 use Modules\Core\Entities\Role;
 use Modules\Core\Helpers\Helpers;
+use Shetabit\Shopit\Modules\Permission\Http\Requests\Admin\RoleUpdateRequest as BaseRoleUpdateRequest;
 
-class RoleUpdateRequest extends FormRequest
+class RoleUpdateRequest extends BaseRoleUpdateRequest
 {
     /**
      * Get the validation rules that apply to the request.

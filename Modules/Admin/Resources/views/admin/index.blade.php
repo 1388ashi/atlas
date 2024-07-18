@@ -50,7 +50,9 @@
                             @forelse($admins as $admin)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td>{{ $admin->name }}</td>
+                                    <td>
+                                     @if ($admin->name) {{ $admin->name }} @else - @endif
+                                    </td>
                                     <td>{{ $admin->username }}</td>
                                     @if($admin->mobile)
                                     <td>{{ $admin->mobile }}</td>
@@ -67,7 +69,6 @@
                                     <td>{{verta($admin->created_at)->format('Y/m/d H:i')}}</td>
                                     <td>
                                         {{-- Edit--}}
-                                        <a href="{{ route('admin.admins.show', [$admin->id]) }}" class="btn btn-info btn-sm text-white" data-toggle="tooltip" data-original-title="نمایش"><i class="fa fa-eye"></i></a>
                                         <a href="{{ route('admin.admins.edit', [$admin->id]) }}" class="btn btn-warning btn-sm text-white" data-toggle="tooltip" data-original-title="ویرایش"><i class="fa fa-pencil"></i></a>
 
                                         @if ($admin->isDeletable() == true)
